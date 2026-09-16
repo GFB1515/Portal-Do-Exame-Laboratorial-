@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> LAUDO LABORATORIAL</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:#ececec;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#111;
+  }
+  .simbar{
+    position:sticky;top:0;z-index:10;
+    text-align:center;
+    padding:10px 14px;
+    background:#fff3cd;
+    border-bottom:2px solid #d6b14b;
+    color:#6a5200;
+    font-weight:800;
+  }
+  .sheet{
+    width:min(1120px,94vw);
+    margin:22px auto 40px;
+    background:#fff;
+    padding:36px 46px 34px;
+    box-shadow:0 4px 20px rgba(0,0,0,.08);
+    position:relative;
+    overflow:hidden;
+  }
+  .wm{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .wm span{
+    font-size:72px;
+    font-weight:900;
+    transform:rotate(-28deg);
+    color:rgba(170,0,0,.055);
+    white-space:nowrap;
+  }
+  .top{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:30px;
+  }
+  .fake-logo{
+    display:flex;align-items:center;gap:12px;
+  }
+  .fake-mark{
+    width:38px;height:58px;border-radius:18px 18px 8px 8px;
+    background:#1c6f8f;
+    position:relative;
+  }
+  .fake-mark:after{
+    content:"";
+    position:absolute;
+    width:22px;height:8px;
+    right:-5px;top:-3px;
+    background:#ef7f2d;
+    border-radius:6px;
+    transform:rotate(-22deg);
+  }
+  .fake-name{
+    font-size:31px;
+    letter-spacing:1px;
+    font-weight:700;
+    color:#1c6f8f;
+  }
+  .fake-sub{
+    letter-spacing:8px;
+    color:#6a9aad;
+    margin-top:2px;
+    font-size:12px;
+  }
+  .support{
+    text-align:right;
+    color:#1c6f8f;
+    font-weight:700;
+    line-height:1.35;
+  }
+  .orange{
+    height:5px;background:#ef7f2d;margin:20px -46px 28px;
+  }
+  .patient{
+    display:grid;
+    grid-template-columns:1.8fr 1.1fr .8fr;
+    gap:28px;
+    align-items:start;
+  }
+  .id{
+    font-size:29px;
+    font-weight:800;
+    margin-bottom:6px;
+  }
+  .name{font-size:17px;font-weight:700;margin-bottom:8px}
+  .line{font-size:15px;margin:5px 0}
+  .barcode{
+    margin-left:auto;
+    width:150px;
+    height:50px;
+    background:repeating-linear-gradient(
+      90deg,
+      #111 0,#111 2px,
+      #fff 2px,#fff 4px,
+      #111 4px,#111 5px,
+      #fff 5px,#fff 8px
+    );
+  }
+  .sex{text-align:center;margin-bottom:4px}
+  .headings{
+    display:grid;
+    grid-template-columns:1.5fr .9fr 1.2fr;
+    margin-top:92px;
+    font-size:25px;
+    color:#aaa49c;
+    font-weight:700;
+  }
+  .date-row{
+    display:grid;
+    grid-template-columns:1.5fr .9fr 1.2fr;
+    align-items:end;
+    font-size:15px;
+    padding:10px 0 7px;
+    border-bottom:1px solid #bfbfbf;
+  }
+  .exam-row{
+    display:grid;
+    grid-template-columns:1.5fr .9fr 1.2fr;
+    gap:12px;
+    padding:16px 0 4px;
+  }
+  .exam-title{font-size:18px;font-weight:800}
+  .small{font-size:11px}
+  .exam-name{font-size:17px}
+  .result{
+    font-size:20px;
+    font-weight:800;
+    color:#157347;
+    padding-top:31px;
+  }
+  .ref{
+    text-align:right;
+    font-size:14px;
+    padding-top:31px;
+    line-height:1.35;
+  }
+  .creat{
+    display:grid;
+    grid-template-columns:1.5fr .9fr 1.2fr;
+    gap:12px;
+    padding-top:10px;
+    font-size:17px;
+  }
+  .creat strong{font-size:18px}
+  .notes{
+    width:84%;
+    margin:34px auto 0;
+    font-size:15px;
+    line-height:1.35;
+  }
+  .signature{
+    text-align:right;
+    font-size:12px;
+    line-height:1.35;
+    margin-top:10px;
+  }
+  .warning{
+    margin-top:22px;
+    padding:12px 14px;
+    border:1px dashed #c77;
+    background:#fff7f7;
+    color:#8b1d1d;
+    font-size:12px;
+    font-weight:700;
+  }
+  @media(max-width:800px){
+    .sheet{padding:22px 18px}
+    .orange{margin:18px -18px 24px}
+    .patient,.headings,.date-row,.exam-row,.creat{
+      grid-template-columns:1fr;
+    }
+    .headings{gap:6px;margin-top:45px}
+    .barcode{margin:10px 0 0}
+    .sex{text-align:left}
+    .ref{text-align:left;padding-top:0}
+    .result{padding-top:0}
+    .notes{width:100%}
+    .wm span{font-size:42px}
+  }
+</style>
+</head>
+<body>
+
+
+<div class="sheet">
+
+
+  <div class="top">
+    <div class="fake-logo">
+      <div class="fake-mark"></div>
+      <div>
+        <div class="fake-name">LABORATÓRIO FRISCHMANN</div>
+        
+      </div>
+    </div>
+    <div class="support">
+      Atendimento ao Cliente<br>
+      4004.0103| www.labfa.com.br
+    </div>
+  </div>
+
+  <div class="orange"></div>
+
+  <div class="patient">
+    <div>
+      <div class="id">8089.0480.3797 / CIP 7678356964</div>
+      <div class="name">Antonio Vincenzo de Donno</div>
+      <div class="line">Solicitante paulo cavalcante muzy</div>
+    </div>
+
+    <div>
+      <div class="line">DN: 20/03/1987 (39 Anos)</div>
+      <div class="line">Telefone: não informado</div>
+    </div>
+
+    <div>
+      <div class="sex">SEXO: Masculino</div>
+      <div class="barcode"></div>
+    </div>
+  </div>
+
+  <div class="headings">
+    <div>Exame</div>
+    <div>Resultado</div>
+    <div>Valor de Referência</div>
+  </div>
+
+  <div class="date-row">
+    <div>Data de Coleta/Recebimento: <strong>12/09/2026</strong></div>
+    <div></div>
+    <div style="text-align:right">Hora Aproximada: 13:31 BRT</div>
+  </div>
+
+  <div class="exam-row">
+    <div>
+      <div class="exam-title">Exame </div>
+      <div class="small">(Material: Urina-amostra isolada)</div>
+      <div class="exam-name">Cocaína - Pesquisa Benzoilecgonina</div>
+    </div>
+    <div class="result">NEGATIVO</div>
+    <div class="ref">
+      Negativo<br>
+      Nível de decisão: exemplo<br>
+      
+    </div>
+  </div>
+
+  <div class="creat">
+    <div>Creatinina</div>
+    <div><strong>150,00</strong> <span class="small">ng/dL</span></div>
+    <div style="text-align:right">50,0 a 300,0 mg/dL<br><span class="small">(Método: exemplo)</span></div>
+  </div>
+
+  <div class="notes">
+    <p>Exame repetido na mesma amostra e resultado negativo.</p>
+  
+  </div>
+
+  <div class="signature">
+    Assinado eletronicamente por Profissional Maisa Ribeiro dos Santos CRBIO-RJ 96835/02 (16:12 BRT) 
+    Responsável: Dr. Emilio Salvador Granato CRM-PR 1313
+  </div>
+
+  
+  </div>
+</div>
+</body>
+</html>

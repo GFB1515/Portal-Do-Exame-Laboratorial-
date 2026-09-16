@@ -1,0 +1,12 @@
+PORTAL DE SIMULAÇÃO
+
+1. Abra index.html no navegador ou no VS Code com Live Server.
+2. Login de demonstração:
+   Usuário: demo
+   Senha: 1234
+3. Após o login, a página abre laudo.html.
+
+Observação:
+- Tudo é local.
+- Nenhuma senha é enviada ou armazenada.
+- A página é apenas uma simulação.

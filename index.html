@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal de Exames — Simulação</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(135deg,#f5f7fb,#e9eef5);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1f2937;
+}
+.wrap{
+  width:min(420px,92vw);
+}
+.notice{
+  background:#fff3cd;
+  color:#6b5500;
+  border:1px solid #efd77b;
+  border-radius:10px;
+  padding:10px 12px;
+  text-align:center;
+  font-weight:700;
+  margin-bottom:14px;
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 14px 40px rgba(0,0,0,.10);
+  padding:30px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:26px;
+}
+.logo{
+  width:46px;height:46px;
+  border-radius:12px;
+  background:#1c6f8f;
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+}
+h1{
+  font-size:22px;
+  margin:0;
+}
+.sub{
+  color:#6b7280;
+  font-size:13px;
+  margin-top:3px;
+}
+label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin:14px 0 6px;
+}
+input{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  outline:none;
+  font-size:15px;
+}
+input:focus{
+  border-color:#1c6f8f;
+  box-shadow:0 0 0 3px rgba(28,111,143,.12);
+}
+button{
+  width:100%;
+  margin-top:18px;
+  padding:13px;
+  border:0;
+  border-radius:10px;
+  background:#1c6f8f;
+  color:white;
+  font-size:15px;
+  font-weight:800;
+  cursor:pointer;
+}
+button:hover{filter:brightness(.95)}
+.error{
+  display:none;
+  margin-top:12px;
+  background:#fff1f2;
+  color:#9f1239;
+  border:1px solid #fecdd3;
+  padding:10px 12px;
+  border-radius:9px;
+  font-size:13px;
+}
+.demo{
+  margin-top:18px;
+  padding:12px;
+  border-radius:10px;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  font-size:13px;
+  color:#475569;
+}
+.small{
+  margin-top:16px;
+  color:#94a3b8;
+  text-align:center;
+  font-size:11px;
+  line-height:1.4;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  
+  <div class="card">
+    <div class="brand">
+      <div class="logo">LAB</div>
+      <div>
+        <h1>Portal de Exames</h1>
+        <div class="sub">Ambiente de resultados laboratorial 
+
+        </div>
+      </div>
+    </div>
+
+    <form id="loginForm">
+      <label for="usuario">Usuário</label>
+      <input id="usuario" type="text" autocomplete="off" placeholder="Digite o usuário">
+
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" autocomplete="off" placeholder="Digite a senha">
+
+      <button type="submit">Entrar</button>
+
+      <div id="erro" class="error">Usuário ou senha incorretos.</div>
+    </form>
+
+    
+    </div>
+
+    <div class="small">
+      As credenciais funcionam apenas neste arquivo local e não são enviadas ou armazenadas.
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const usuario = document.getElementById("usuario").value.trim();
+  const senha = document.getElementById("senha").value;
+  const erro = document.getElementById("erro");
+
+  if(usuario === "343.839.478-24" && senha === "Toninho-20"){
+    window.location.href = "laudo.html";
+  } else {
+    erro.style.display = "block";
+  }
+});
+</script>
+</body>
+</html>
